@@ -1,6 +1,8 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx}'],
+  content: ['./src/**/*.{ts,tsx}'],
   darkMode: 'class',
   plugins: [require('@tailwindcss/typography')],
   theme: {
@@ -21,7 +23,22 @@ module.exports = {
     },
     extend: {
       colors: {
-        brand: '#ff0844',
+        brand: {
+          50: '#ffe1e8',
+          100: '#ffb1bd',
+          200: '#ff7e95',
+          300: '#ff4c72',
+          400: '#ff1a51',
+          500: '#e60029',
+          600: '#b40013',
+          700: '#810004',
+          800: '#500400',
+          900: '#210600',
+        },
+      },
+      fontFamily: {
+        sans: ['Sora', ...defaultTheme.fontFamily.sans],
+        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
       },
     },
     typography: (theme) => ({
