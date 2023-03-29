@@ -20,29 +20,18 @@ const Projects = () => (
   <>
     <Head>
       <title>Projects - George Bockari</title>
-      <meta
-        name="description"
-        content="Things I’ve made trying to put my dent in the universe."
-      />
+      <meta name="description" content="Things I’ve made trying to put my dent in the universe." />
     </Head>
     <SimpleLayout
       title="Things I’ve made trying to put my dent in the universe."
       intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
     >
-      <ul
-        role="list"
-        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-      >
+      <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <Card as="li" key={project.name}>
             <div className="inline-flex w-full items-center space-x-4">
               <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-                <Image
-                  src={project.logo}
-                  alt=""
-                  className="h-8 w-8"
-                  unoptimized
-                />
+                <Image src={project.logo} alt="" className="h-8 w-8" unoptimized />
               </div>
               {project.caseStudy && (
                 <span className="inline-flex items-center rounded-full border px-2.5  py-0.5 text-xs font-medium text-zinc-600 dark:border-zinc-700/70 ">

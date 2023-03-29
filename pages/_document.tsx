@@ -42,19 +42,11 @@ export default function Document() {
         {/*  TODO: use next/theme for color-mode management */}
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
         {/*  TODO: Add this to root layout head?? */}
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.xml`}
-        />
-        <link
-          rel="alternate"
-          type="application/feed+json"
-          href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
-        />
+        <link rel="alternate" type="application/rss+xml" href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.xml`} />
+        <link rel="alternate" type="application/feed+json" href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`} />
       </Head>
       {/*  TODO: This becomes part of the layout */}
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
+      <body className="relative flex h-full flex-col bg-neutral-1 text-neutral-12 dark:bg-black dark:text-neutralDark-12">
         <Main />
         <NextScript />
       </body>
