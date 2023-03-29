@@ -1,6 +1,7 @@
 import glob from 'fast-glob'
 import * as path from 'path'
 
+// TODO: replace all this with contentlayer
 async function importArticle(articleFilename) {
   let { meta, default: component } = await import(
     `../pages/articles/${articleFilename}`

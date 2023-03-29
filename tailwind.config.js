@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require("tailwindcss/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -23,18 +24,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        brand: {
-          50: '#ffe1e8',
-          100: '#ffb1bd',
-          200: '#ff7e95',
-          300: '#ff4c72',
-          400: '#ff1a51',
-          500: '#e60029',
-          600: '#b40013',
-          700: '#810004',
-          800: '#500400',
-          900: '#210600',
-        },
+        brand: colors.lime
       },
       fontFamily: {
         sans: ['Sora', ...defaultTheme.fontFamily.sans],

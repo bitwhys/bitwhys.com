@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-import { Card } from '@/components/Card'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import { Card } from '@/components/card'
+import { SimpleLayout } from '@/components/simple-layout'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 

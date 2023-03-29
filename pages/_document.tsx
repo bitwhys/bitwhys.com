@@ -39,7 +39,9 @@ export default function Document() {
   return (
     <Html className="h-full antialiased" lang="en">
       <Head>
+        {/*  TODO: use next/theme for color-mode management */}
         <script dangerouslySetInnerHTML={{ __html: modeScript }} />
+        {/*  TODO: Add this to root layout head?? */}
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -51,6 +53,7 @@ export default function Document() {
           href={`${process.env.NEXT_PUBLIC_SITE_URL}/rss/feed.json`}
         />
       </Head>
+      {/*  TODO: This becomes part of the layout */}
       <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
         <Main />
         <NextScript />
