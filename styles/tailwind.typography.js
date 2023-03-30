@@ -24,8 +24,8 @@ const typography = (theme) => ({
   },
   DEFAULT: {
     css: {
-      '--tw-prose-body': theme('colors.zinc.600'),
-      '--tw-prose-headings': theme('colors.zinc.900'),
+      '--tw-prose-body': theme('colors.neutral.11'),
+      '--tw-prose-headings': theme('colors.neutral-12'),
       '--tw-prose-links': theme('colors.teal.500'),
       '--tw-prose-links-hover': theme('colors.teal.600'),
       '--tw-prose-underline': theme('colors.teal.500 / 0.2'),
@@ -44,12 +44,13 @@ const typography = (theme) => ({
       '--tw-prose-th-borders': theme('colors.zinc.200'),
       '--tw-prose-td-borders': theme('colors.zinc.100'),
 
-      '--tw-prose-invert-body': theme('colors.zinc.400'),
-      '--tw-prose-invert-headings': theme('colors.zinc.200'),
-      '--tw-prose-invert-links': theme('colors.teal.400'),
-      '--tw-prose-invert-links-hover': theme('colors.teal.400'),
-      '--tw-prose-invert-underline': theme('colors.teal.400 / 0.3'),
-      '--tw-prose-invert-underline-hover': theme('colors.teal.400'),
+      // Dark mode
+      '--tw-prose-invert-body': theme('colors.neutralDark.11'),
+      '--tw-prose-invert-headings': theme('colors.neutralDark.12'),
+      '--tw-prose-invert-links': theme('colors.brandDark.9'),
+      '--tw-prose-invert-links-hover': theme('colors.brandDark.10'),
+      '--tw-prose-invert-underline': theme('colors.brandDark.8'),
+      '--tw-prose-invert-underline-hover': theme('colors.brandDark.9'),
       '--tw-prose-invert-bold': theme('colors.zinc.200'),
       '--tw-prose-invert-counters': theme('colors.zinc.200'),
       '--tw-prose-invert-bullets': theme('colors.zinc.200'),
@@ -80,6 +81,7 @@ const typography = (theme) => ({
       'h2, h3': {
         color: 'var(--tw-prose-headings)',
         fontWeight: theme('fontWeight.semibold'),
+        fontFamily: theme('fontFamily.heading'),
       },
       h2: {
         fontSize: theme('fontSize.xl')[0],

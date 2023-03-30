@@ -1,5 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
-import { getSlug } from '@/lib/utils'
+import { getSlug } from './lib/utils'
 // import { makeSource } from 'contentlayer/source-remote-files'
 // import { createRequire } from 'module'
 

@@ -1,7 +1,9 @@
 import clsx from 'clsx'
 
-export function Prose({ children, className }) {
-  return (
-    <div className={clsx(className, 'prose dark:prose-invert')}>{children}</div>
-  )
+export type ProseProps = {
+  className?: string
+  content?: string
+}
+export function Prose({ content, className }: ProseProps) {
+  return <div className={clsx(className, 'prose dark:prose-invert')} dangerouslySetInnerHTML={{ __html: content }} />
 }
