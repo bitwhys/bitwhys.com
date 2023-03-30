@@ -1,12 +1,13 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/container'
 import avatarImage from '@/images/avatar.png'
 import { Fragment, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 function CloseIcon(props) {
   return (
@@ -128,7 +129,7 @@ function MobileNavigation(props) {
 }
 
 function NavItem({ href, children }) {
-  let isActive = useRouter().pathname === href
+  let isActive = usePathname() === href
 
   return (
     <li>
@@ -136,7 +137,7 @@ function NavItem({ href, children }) {
         href={href}
         className={clsx(
           'relative block px-3 py-2 transition',
-          isActive ? 'text-brand-9 dark:text-brandDark-9' : 'hover:text-brand-11 dark:hover:text-brandDark-11'
+          isActive ? 'text-brand-9 dark:text-brandDark-9' : 'hover:text-brand-10 dark:hover:text-brandDark-10'
         )}
       >
         {children}
@@ -149,7 +150,11 @@ function NavItem({ href, children }) {
 function DesktopNavigation(props) {
   return (
     <nav {...props}>
-      <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
+      <ul
+        className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-neutral-12 shadow-lg
+        shadow-overlay-4 ring-1 ring-neutral-6 backdrop-blur dark:bg-neutralDark-3 dark:text-neutralDark-12 dark:shadow-overlay-10
+        dark:ring-neutralDark-6"
+      >
         <NavItem href="/about">About</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         <NavItem href="/projects">Projects</NavItem>
@@ -186,7 +191,8 @@ function ModeToggle() {
     <button
       type="button"
       aria-label="Toggle dark mode"
-      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+      className="group rounded-full bg-white px-3 py-2 shadow-lg shadow-overlay-4  ring-1 ring-neutral-6 backdrop-blur
+        transition dark:bg-neutralDark-3 dark:shadow-overlay-10 dark:ring-neutralDark-6 dark:hover:ring-neutralDark-8"
       onClick={toggleMode}
     >
       <SunIcon className="[@media(prefers-color-scheme:dark)]:fill-brand-50 [@media(prefers-color-scheme:dark)]:stroke-brand-500 [@media(prefers-color-scheme:dark)]:group-hover:fill-brand-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-brand-600 h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden" />
@@ -228,7 +234,7 @@ function Avatar({ large = false, className, ...props }) {
 }
 
 export function Header() {
-  let isHomePage = useRouter().pathname === '/'
+  let isHomePage = usePathname() === '/'
 
   let headerRef = useRef()
   let avatarRef = useRef()

@@ -1,6 +1,7 @@
 import nextMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
 import rehypePrism from '@mapbox/rehype-prism'
+import { withContentlayer }  from 'next-contentlayer'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -10,16 +11,17 @@ const nextConfig = {
   experimental: {
     newNextLinkBehavior: true,
     scrollRestoration: true,
+    appDir: true,
   },
 }
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism],
-    providerImportSource: '@mdx-js/react',
-  },
-})
+// const withMDX = nextMDX({
+//   extension: /\.mdx?$/,
+//   options: {
+//     remarkPlugins: [remarkGfm],
+//     rehypePlugins: [rehypePrism],
+//     providerImportSource: '@mdx-js/react',
+//   },
+// })
 
-export default withMDX(nextConfig)
+export default withContentlayer(nextConfig)

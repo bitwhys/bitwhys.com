@@ -3,9 +3,7 @@ import * as path from 'path'
 
 // TODO: replace all this with contentlayer
 async function importArticle(articleFilename) {
-  let { meta, default: component } = await import(
-    `../pages/articles/${articleFilename}`
-  )
+  let { meta, default: component } = await import(`../pages/articles/${articleFilename}`)
   return {
     slug: articleFilename.replace(/(\/index)?\.mdx$/, ''),
     ...meta,
@@ -14,8 +12,8 @@ async function importArticle(articleFilename) {
 }
 
 export async function getAllArticles() {
-  let articleFilenames = await glob(['*.mdx', '*/index.mdx'], {
-    cwd: path.join(process.cwd(), 'pages/articles'),
+  let articleFilenames = await glob(['*.mdx', '*/crafting-a-design-system-for-a-multiplanetary-future.mdx'], {
+    cwd: path.join(process.cwd(), '_pages_/articles'),
   })
 
   let articles = await Promise.all(articleFilenames.map(importArticle))

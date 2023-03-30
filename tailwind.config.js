@@ -2,11 +2,11 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 const { typography } = require('./styles/tailwind.typography')
 const { radixToTailwind } = require('./lib/radixToTailwind')
-const { olive, oliveDark, lime, limeDark } = require('@radix-ui/colors')
+const { olive, oliveDark, lime, limeDark, blackA } = require('@radix-ui/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./components/**/*.{ts,tsx}', './pages/**/*.{ts,tsx}'],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
   darkMode: 'class',
   plugins: [require('@tailwindcss/typography')],
   theme: {
@@ -32,10 +32,12 @@ module.exports = {
         brandDark: radixToTailwind(limeDark),
         neutral: radixToTailwind(olive),
         neutralDark: radixToTailwind(oliveDark),
+        overlay: radixToTailwind(blackA),
       },
       fontFamily: {
-        sans: ['Sora', ...defaultTheme.fontFamily.sans],
-        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+        mono: ['var(--font-mono)', ...defaultTheme.fontFamily.sans],
+        heading: ['var(--font-heading),var(--font-sans)', ...defaultTheme.fontFamily.sans],
       },
     },
     typography,

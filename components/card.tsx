@@ -59,19 +59,22 @@ Card.Link = function CardLink({ children, ...props }: CardLinkProps) {
 
 Card.Title = function CardTitle({ as: Component = 'h2', href, children }: CardTitleProps) {
   return (
-    <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
+    <Component className="font-heading text-lg tracking-wide text-neutral-12 dark:text-neutralDark-12">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
 }
 
 Card.Description = function CardDescription({ children }: CardDescriptionProps) {
-  return <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">{children}</p>
+  return <p className="relative z-10 mt-2 text-sm text-neutral-11 dark:text-neutralDark-11">{children}</p>
 }
 
 Card.Cta = function CardCta({ children }: CardCtaProps) {
   return (
-    <div aria-hidden="true" className="relative z-10 mt-4 flex items-center text-sm font-medium text-brand-500">
+    <div
+      aria-hidden="true"
+      className="relative z-10 mt-4 flex items-center text-sm font-medium text-brand-9 dark:text-brandDark-9"
+    >
       {children}
       <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
     </div>
@@ -89,14 +92,14 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500',
+        'relative z-10 order-first mb-3 flex items-center text-sm text-neutral-9 dark:text-neutralDark-9',
         decorate && 'pl-3.5'
       )}
       {...props}
     >
       {decorate && (
         <span className="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-          <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+          <span className="h-4 w-0.5 rounded-full bg-neutral-6 dark:bg-neutralDark-6" />
         </span>
       )}
       {children}

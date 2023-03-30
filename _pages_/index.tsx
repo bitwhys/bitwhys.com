@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { allPosts } from 'contentlayer/generated'
 
 import { Button } from '@/components/button'
 import { Card } from '@/components/card'
@@ -14,7 +15,7 @@ import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
 
 import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
+// import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
 import resume from '@/data/resume'
 
@@ -97,7 +98,7 @@ function SocialLink({ icon: Icon, ...props }) {
 
 function Newsletter() {
   return (
-    <form action="/pages/thank-you" className="rounded-2xl border border-neutral-5 p-6 dark:border-neutralDark-5">
+    <form action="/_pages_/thank-you" className="rounded-2xl border border-neutral-5 p-6 dark:border-neutralDark-5">
       <h2 className="flex text-sm font-semibold">
         <MailIcon className="h-6 w-6 flex-none" />
         <span className="ml-3">Stay up to date</span>
@@ -111,7 +112,7 @@ function Newsletter() {
           placeholder="Email address"
           aria-label="Email address"
           required
-          className="min-w-0 flex-auto appearance-none rounded-md border border-neutral-6 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10 dark:border-neutralDark-6 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-brand-400 dark:focus:ring-brand-400/10 sm:text-sm"
+          className="focus:border-brand-500 focus:ring-brand-500/10 dark:focus:border-brand-400 dark:focus:ring-brand-400/10 min-w-0 flex-auto appearance-none rounded-md border border-neutral-6 bg-white px-3 py-[calc(theme(spacing.2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:outline-none focus:ring-4 dark:border-neutralDark-6 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 sm:text-sm"
         />
         <Button type="submit" className="ml-4 flex-none">
           Join
@@ -239,7 +240,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      articles: (await getAllArticles()).slice(0, 4).map(({ component, ...meta }) => meta),
+      articles: allPosts().slice(0, 4),
     },
   }
 }
