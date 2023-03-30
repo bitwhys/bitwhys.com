@@ -1,0 +1,16 @@
+import { SimpleLayout } from '@/components/simple-layout'
+
+export const metadata = {
+  title: 'You’re subscribed - George Bockari',
+  description: 'Thanks for subscribing to my newsletter.',
+}
+
+const ThankYouPage = () => (
+  <>
+    <SimpleLayout
+      title="Thanks for subscribing."
+      intro="I’ll send you an email any time I publish a new blog post, release a new project, or have anything interesting to share that I think you’d want to hear about. You can unsubscribe at any time, no hard feelings."
+    />
+  </>
+)
+export default ThankYouPage

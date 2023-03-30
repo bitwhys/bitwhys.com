@@ -2,7 +2,7 @@ import '@/styles/tailwind.css'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import clsx from 'clsx'
-import { bluuNextFont, visbyFont, geliatFont, ibmPlexMono } from '@/styles/fonts'
+import { bluuNextFont, geliatFont, ibmPlexMono } from '@/styles/fonts'
 
 const AppLayout = ({ children }) => (
   <>

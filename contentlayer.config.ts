@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import { getSlug } from '@/lib/utils'
 // import { makeSource } from 'contentlayer/source-remote-files'
 // import { createRequire } from 'module'
 
@@ -29,7 +30,7 @@ const Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
       type: 'string',
-      resolve: (doc) => doc._raw.flattenedPath,
+      resolve: (doc) => getSlug(doc._raw.flattenedPath),
     },
   },
 }))

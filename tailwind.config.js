@@ -1,7 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
 const { typography } = require('./styles/tailwind.typography')
-const { radixToTailwind } = require('./lib/radixToTailwind')
+const { radixToTailwind } = require('./lib/utils/radixToTailwind')
 const { olive, oliveDark, lime, limeDark, blackA } = require('@radix-ui/colors')
 
 /** @type {import('tailwindcss').Config} */

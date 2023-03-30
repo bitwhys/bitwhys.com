@@ -1,7 +1,14 @@
+import type { FC, SVGProps, ReactNode } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
 
-export const SocialLink = ({ className, href, children, icon: Icon }) => (
+export type SocialLinkProps = {
+  className?: string
+  href: string
+  icon: FC<SVGProps<SVGSVGElement>>
+  children: ReactNode
+}
+export const SocialLink = ({ className, href, children, icon: Icon }: SocialLinkProps) => (
   <li className={clsx(className, 'flex')}>
     <Link
       href={href}
